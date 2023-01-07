@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>成功访问网站</h1>
+获取后端的数据为:
+{{.msg}}
+<form action="/user/add" method="post" >
+    <p>username:<input type="text" name="username"></p>
+    <p>password:<input type="text" name="password"></p>
+    <button type="submit"></button>
+</form>
+</body>
+</html>
