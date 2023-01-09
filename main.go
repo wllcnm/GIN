@@ -61,7 +61,7 @@ func main() {
 			"userName": userName,
 		})
 	})
-	//
+	//将前端发来的json进行解析
 	ginServer.POST("/json", func(context *gin.Context) {
 		data, _ := context.GetRawData()
 		var m map[string]interface {
@@ -105,7 +105,16 @@ func main() {
 		println(mustGet)
 		log.Println(mustGet)
 	})
-
+	//将本地的电影文件返回给前端
+	ginServer.GET("/test/movie", func(context *gin.Context) {
+		context.File("G:\\电影\\阳光电影www.ygdy8.com.神秘海域.2022.HD.1080P.中英双字.mkv")
+	})
+	//给前端返回一个电影的html
+	ginServer.GET("/index/movie", func(context *gin.Context) {
+		context.HTML(200, "movie.html", gin.H{
+			"msg": "请求成功",
+		})
+	})
 	//启动服务:设置端口为8082
 	ginServer.Run(":8082")
 
